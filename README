@@ -1,0 +1,18 @@
+Warning: This extension is still work in progress, and escaping is not fully tested yet and not
+implemented in all contexts (E.g. for CSS).
+
+This extension allows wiki administrators to make small snippets of raw html, that oridinary users
+can include on pages. The snippets can take parameters like normal templates, which should be
+contextually escaped.
+
+This is very similar to the popular Widgets mediawiki extension. The main difference is instead
+of using the Smarty templating language, it uses MediaWiki inspired template parameters with
+context-sensitive escaping. It is the author's opinion that Smarty has too many hidden gotchas
+to be used safely by non-technical users, often resulting in XSS. It is hoped this will be a safer
+option. It should be emphasized however that any form of raw html is dangerous and should be used carefully.
+
+To install this extension, simply add wfLoadExtension( 'HTMLTemplates' ); to your LocalSettings.php.
+
+After that, people in the editinterface group should be able to add templates in the HTMLTemplate namespace.
+You should be able to include them like normal templates, with parameters just working and automatically
+being escaped.

@@ -1,0 +1,84 @@
+{
+	"name": "HTMLTemplates",
+	"author": [
+		"Brian Wolff"
+	],
+	"version": "0.1",
+	"url": "https://www.mediawiki.org/wiki/Extension:HTMLTemplates",
+	"descriptionmsg": "htmltemplates-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"ContentHandlers": {
+		"htmltemplate": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContentHandler"
+	},
+	"requires": {
+		"MediaWiki": ">= 1.35"
+	},
+	"MessagesDirs": {
+		"HTMLTemplates": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"HTMLTemplatesMagic": "HTMLTemplates.magic.php",
+		"HTMLTemplatesNamespaces": "HTMLTemplates.namespaces.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\HTMLTemplates\\": "includes/"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "main",
+		"CodeEditorGetPageLanguage": "main",
+		"ContentHandlerDefaultModelFor": "main",
+		"BeforeParserFetchTemplateAndtitle": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContent::onBeforeParserFetchTemplateAndtitle",
+		"BeforeParserFetchTemplateRevisionRecord": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContent::onBeforeParserFetchTemplateAndtitle"
+	},
+	"callback": "MediaWiki\\Extension\\HTMLTemplates\\Hooks::setup",
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\HTMLTemplates\\Hooks",
+			"services": [ "RevisionLookup", "HTMLTemplates:ParameterReplacer" ]
+		}
+	},
+	"namespaces": [
+		{
+			"id": 3454,
+			"constant": "NS_HTMLTEMPLATE",
+			"name": "HTMLTemplate",
+			"subpages": true,
+			"protection": "edithtmltemplates"
+		},
+		{
+			"id": 3455,
+			"constant": "NS_HTMLTEMPLATE_TALK",
+			"name": "HTMLTemplate_talk",
+			"subpages": true
+		}
+	],
+	"config": {
+	},
+	"AvailableRights": [
+		"edithtmltemplates"
+	],
+	"GroupPermissions": {
+		"interface-admin": {
+			"edithtmltemplates": true
+		}
+	},
+	"attributes": {
+		"TemplateSandbox": {
+			"EditNamespaces": [
+				3454
+			]
+		},
+		"TemplateStyles": {
+			"Namespaces": [
+				3454
+			]
+		}
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"manifest_version": 2
+}
