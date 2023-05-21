@@ -87,7 +87,10 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 			foreach ( $node->attrs->getValues() as $attrName => $attrValue ) {
 				if ( $this->shouldReplace( $attrValue ) ) {
 					$dom = $this->parser->preprocessToDom( $attrValue, Parser::PTD_FOR_INCLUSION );
-					$attrValue = $this->postProcessAttr( $attrName, $this->expandPlain( $dom ) );
+					$expanded = substr( $attrName, 0, 2 ) === 'on' ?
+						$this->expandUnquotedJS( $dom ) :
+						$this->expandPlain( $dom );
+					$attrValue = $this->postProcessAttr( $attrName, $expanded );
 				}
 				$encValue = strtr( $attrValue, $this->attributeEscapes );
 				$s .= " $attrName=\"$encValue\"";
