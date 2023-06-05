@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"htmltemplates-desc": "Omogoča ustvarjanje predlog v imenskem prostoru HTMLTemplate, ki neposredno uporabljajo HTML",
+	"htmltemplates-transclusionerror": "Notranja napaka: Predloge HTML za vključitev ni bilo mogoče najti.",
+	"htmltemplates-transclusion-args": "Predloge HTML ni bilo mogoče prevključiti"
+}

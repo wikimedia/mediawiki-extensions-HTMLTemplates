@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Verdy p"
+		]
+	},
+	"htmltemplates-desc": "Permet de créer des modèles dans l’espace de noms HTMLTemplate qui utilisent directement du HTML",
+	"htmltemplates-transclusionerror": "Erreur interne : impossible de trouver le modèle HTML à transclure.",
+	"htmltemplates-transclusion-args": "Le modèle HTML n’a pas pu être transclus"
+}

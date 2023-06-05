@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"htmltemplates-desc": "Permitter facer patronos in le spatio de nomines HTMLTemplate que usa HTML directemente",
+	"htmltemplates-transclusionerror": "Error interne: Non poteva trovar patrono HTML a transcluder.",
+	"htmltemplates-transclusion-args": "Patrono HTML non poteva esser transcludite"
+}
