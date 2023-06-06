@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sabelöga"
+		]
+	},
+	"htmltemplates-desc": "Tillåt att mallar skapas i HTMLTemplate-namnrymden som använder HTML direkt",
+	"htmltemplates-transclusionerror": "Internt fel: Hittade inte HTML-mall att transkludera.",
+	"htmltemplates-transclusion-args": "HTML-mall kunde inte transkluderas"
+}
