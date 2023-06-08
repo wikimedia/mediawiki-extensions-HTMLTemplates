@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"htmltemplates-desc": "אפשרות ליצור תבניות במרחב השמות HTMLTemplate המשתמשות ב־HTML ישירות",
+	"htmltemplates-transclusionerror": "שגיאה פנימית: לא ניתן למצוא תבנית HTML להכללה.",
+	"htmltemplates-transclusion-args": "לא היה אפשר להכליל תבנית HTML"
+}
