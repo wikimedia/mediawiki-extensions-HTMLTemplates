@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Spyridon Eftychios Kokotos"
+		]
+	},
+	"htmltemplates-desc": "Να επιτραπεί η δημιουργία προτύπων στον χώρο ονομάτων HTMLTemplate που χρησιμοποιούν HTML απευθείας.",
+	"htmltemplates-transclusionerror": "Εσωτερικό σφάλμα: Δεν ήταν δυνατό να βρεθεί το πρότυπο HTML για ενσωμάτωση.",
+	"htmltemplates-transclusion-args": "Το πρότυπο HTML δεν μπόρεσε να ενσωματωθεί."
+}

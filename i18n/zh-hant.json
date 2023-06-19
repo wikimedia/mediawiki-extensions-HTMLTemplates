@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"htmltemplates-desc": "允許在 HTMLTemplate 命名空間中製作可直接使用 HTML 的模板",
+	"htmltemplates-transclusionerror": "內部錯誤：找不到要嵌入的 HTML 模板。",
+	"htmltemplates-transclusion-args": "無法嵌入 HTML 模板"
+}
