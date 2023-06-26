@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"htmltemplates-desc": "Gjør det mulig å lage maler i HTMLTemplate-navnerommet som bruker HTML direkte",
+	"htmltemplates-transclusionerror": "Intern feil: Kunne ikke finne HTML-mal som skal transkluderes.",
+	"htmltemplates-transclusion-args": "HTML-mal kunne ikke transkluderes"
+}
