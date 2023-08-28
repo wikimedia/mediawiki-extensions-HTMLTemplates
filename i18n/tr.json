@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hedda"
+		]
+	},
+	"htmltemplates-desc": "HTMLTemplate ad alanında doğrudan HTML kullanan şablonlar oluşturmaya izin verin",
+	"htmltemplates-transclusionerror": "Dahili hata: Aktarılacak HTML şablonu bulunamadı.",
+	"htmltemplates-transclusion-args": "HTML Şablonu aktarılamadı"
+}
