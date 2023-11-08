@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"htmltemplates-desc": "In de HTMLTemplate-naamruimte het maken van sjablonen toestaan die rechtstreeks HTML gebruiken",
+	"htmltemplates-transclusionerror": "Interne fout: Kon het te transcluderen HTML-sjabloon niet vinden.",
+	"htmltemplates-transclusion-args": "HTML-sjabloon kan niet worden getranscludeerd"
+}
