@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"htmltemplates-desc": "Permitir a criação de predefinições no espaço nominal HTMLTemplate que usam HTML diretamente",
+	"htmltemplates-transclusionerror": "Erro interno: não foi possível encontrar a predefinição HTML para transcluir.",
+	"htmltemplates-transclusion-args": "Não foi possível transcluir a predefinição HTML"
+}
