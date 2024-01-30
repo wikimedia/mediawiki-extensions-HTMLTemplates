@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stefán Örvar Sigmundsson"
+		]
+	},
+	"htmltemplates-transclusionerror": "Innri villa: Gat ekki fundið HTML-snið til að innifela.",
+	"htmltemplates-transclusion-args": "HTML-snið var ekki hægt að innifela"
+}
