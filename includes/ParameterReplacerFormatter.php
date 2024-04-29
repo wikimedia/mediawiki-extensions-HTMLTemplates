@@ -82,32 +82,32 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 	 * @inheritDoc
 	 */
 	public function element( SerializerNode $parent, SerializerNode $node, $contents ) {
-			$name = $node->name;
-			$s = "<$name";
-			foreach ( $node->attrs->getValues() as $attrName => $attrValue ) {
-				if ( $this->shouldReplace( $attrValue ) ) {
-					$dom = $this->parser->preprocessToDom( $attrValue, Parser::PTD_FOR_INCLUSION );
-					$expanded = substr( $attrName, 0, 2 ) === 'on' ?
-						$this->expandUnquotedJS( $dom ) :
-						$this->expandPlain( $dom );
-					$attrValue = $this->postProcessAttr( $attrName, $expanded );
-				}
-				$encValue = strtr( $attrValue, $this->attributeEscapes );
-				$s .= " $attrName=\"$encValue\"";
+		$name = $node->name;
+		$s = "<$name";
+		foreach ( $node->attrs->getValues() as $attrName => $attrValue ) {
+			if ( $this->shouldReplace( $attrValue ) ) {
+				$dom = $this->parser->preprocessToDom( $attrValue, Parser::PTD_FOR_INCLUSION );
+				$expanded = substr( $attrName, 0, 2 ) === 'on' ?
+					$this->expandUnquotedJS( $dom ) :
+					$this->expandPlain( $dom );
+				$attrValue = $this->postProcessAttr( $attrName, $expanded );
 			}
-			$s .= '>';
-			if ( $node->namespace === HTMLData::NS_HTML ) {
-					if ( isset( $contents[0] ) && $contents[0] === "\n"
-							&& isset( $this->prefixLfElements[$name] )
-					) {
-							$s .= "\n$contents</$name>";
-					} elseif ( !isset( $this->voidElements[$name] ) ) {
-							$s .= "$contents</$name>";
-					}
-			} else {
-					$s .= "$contents</$name>";
+			$encValue = strtr( $attrValue, $this->attributeEscapes );
+			$s .= " $attrName=\"$encValue\"";
+		}
+		$s .= '>';
+		if ( $node->namespace === HTMLData::NS_HTML ) {
+			if ( isset( $contents[0] ) && $contents[0] === "\n"
+				&& isset( $this->prefixLfElements[$name] )
+			) {
+				$s .= "\n$contents</$name>";
+			} elseif ( !isset( $this->voidElements[$name] ) ) {
+				$s .= "$contents</$name>";
 			}
-			return $s;
+		} else {
+			$s .= "$contents</$name>";
+		}
+		return $s;
 	}
 
 	/**
