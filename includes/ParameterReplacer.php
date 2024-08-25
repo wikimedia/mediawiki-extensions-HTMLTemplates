@@ -3,11 +3,11 @@ namespace MediaWiki\Extension\HTMLTemplates;
 
 use Parser;
 use PPFrame;
-use RemexHtml\HTMLData;
-use RemexHtml\Serializer\Serializer;
-use RemexHtml\Tokenizer\Tokenizer;
-use RemexHtml\TreeBuilder\Dispatcher;
-use RemexHtml\TreeBuilder\TreeBuilder;
+use Wikimedia\RemexHtml\HTMLData;
+use Wikimedia\RemexHtml\Serializer\Serializer;
+use Wikimedia\RemexHtml\Tokenizer\Tokenizer;
+use Wikimedia\RemexHtml\TreeBuilder\Dispatcher;
+use Wikimedia\RemexHtml\TreeBuilder\TreeBuilder;
 
 class ParameterReplacer {
 	public const SERVICE_NAME = 'HTMLTemplates:ParameterReplacer';

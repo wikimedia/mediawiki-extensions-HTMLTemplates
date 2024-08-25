@@ -6,5 +6,7 @@
 	},
 	"htmltemplates-desc": "Allow making templates in the HTMLTemplate namespace that use HTML directly",
 	"htmltemplates-transclusionerror": "Internal error: Could not find HTML template to transclude.",
-	"htmltemplates-transclusion-args": "HTML Template could not be transcluded"
+	"htmltemplates-transclusion-args": "HTML Template could not be transcluded",
+	"right-edithtmltemplates": "Edit HTML templates",
+	"action-edithtmltemplates": "edit HTML templates"
 }

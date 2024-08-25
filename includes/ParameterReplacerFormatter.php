@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\HtmlTemplates;
 
 use Parser;
 use PPFrame;
-use RemexHtml\HTMLData;
-use RemexHtml\Serializer\HtmlFormatter;
-use RemexHtml\Serializer\SerializerNode;
+use Wikimedia\RemexHtml\HTMLData;
+use Wikimedia\RemexHtml\Serializer\HtmlFormatter;
+use Wikimedia\RemexHtml\Serializer\SerializerNode;
 
 class ParameterReplacerFormatter extends HtmlFormatter {
 
