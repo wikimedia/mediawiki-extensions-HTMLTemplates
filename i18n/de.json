@@ -4,5 +4,7 @@
 	},
 	"htmltemplates-desc": "Ermöglicht das Erstellen von Vorlagen im HTMLTemplate-Namensraum, die HTML direkt verwenden",
 	"htmltemplates-transclusionerror": "Interner Fehler: Die einzuschließende HTML-Vorlage konnte nicht gefunden werden.",
-	"htmltemplates-transclusion-args": "Die HTML-Vorlage konnte nicht transkludiert werden"
+	"htmltemplates-transclusion-args": "Die HTML-Vorlage konnte nicht transkludiert werden",
+	"right-edithtmltemplates": "HTML-Vorlagen bearbeiten",
+	"action-edithtmltemplates": "HTML-Vorlagen zu bearbeiten"
 }
