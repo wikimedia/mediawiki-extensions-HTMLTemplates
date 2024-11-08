@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\HtmlTemplates;
 
+use MediaWiki\Parser\Sanitizer;
 use Parser;
 use PPFrame;
 use Wikimedia\RemexHtml\HTMLData;
@@ -14,6 +15,11 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 	private $parser;
 	/** @var PPFrame */
 	private $frame;
+
+	private const ELM_ESC = [
+		'>' => '&gt;',
+		'<' => '&lt;'
+	];
 
 	/**
 	 * @param array $options
@@ -47,9 +53,11 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 		if ( $parent->name === 'script' ) {
 			return $this->expandUnquotedJS( $dom );
 		}
-		// TODO <style>
+		if ( $parent->name === 'style' ) {
+			return strtr( $this->getStyleFrame()->expand( $dom ), self::ELM_ESC );
+		}
 		if ( isset( $this->rawTextElements[$parent->name] ) || $parent->name === 'pre' ) {
-			$plaintext = $this->expandPlain( $dom );
+			$plaintext = strtr( $this->expandPlain( $dom ), self::ELM_ESC );
 			return parent::characters( $parent, $plaintext, 0, strlen( $plaintext ) );
 		}
 		// FIXME, what about headings. Parser functions that output strip markers?
@@ -87,10 +95,24 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 		foreach ( $node->attrs->getValues() as $attrName => $attrValue ) {
 			if ( $this->shouldReplace( $attrValue ) ) {
 				$dom = $this->parser->preprocessToDom( $attrValue, Parser::PTD_FOR_INCLUSION );
-				$expanded = substr( $attrName, 0, 2 ) === 'on' ?
-					$this->expandUnquotedJS( $dom ) :
-					$this->expandPlain( $dom );
-				$attrValue = $this->postProcessAttr( $attrName, $expanded );
+				if ( $attrName === 'style' ) {
+					// Special case style.
+					// If whole thing is subst, we treat like wikitext
+					// style tag. Otherwise we just escape ;
+					if (
+						substr( trim( $attrValue ), 0, 3 ) === '{{{' &&
+						substr( trim( $attrValue ), -3 ) === '}}}'
+					) {
+						$attrValue = Sanitizer::checkCss( $this->expandPlain( $dom ) );
+					} else {
+						$attrValue = $this->getStyleFrame()->expand( $dom );
+					}
+				} else {
+					$expanded = substr( $attrName, 0, 2 ) === 'on' ?
+						$this->expandUnquotedJS( $dom ) :
+						$this->expandPlain( $dom );
+					$attrValue = $this->postProcessAttr( $attrName, $expanded );
+				}
 			}
 			$encValue = strtr( $attrValue, $this->attributeEscapes );
 			$s .= " $attrName=\"$encValue\"";
@@ -163,6 +185,26 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 	}
 
 	/**
+	 * Get a frame for css values where ; is escaped
+	 *
+	 * @todo We might want to be more granular with this, for example, making
+	 *  url( "foo/{{{1}}}" ) not be allowed to break out of url().
+	 * @return PPFrame
+	 */
+	private function getStyleFrame() {
+		static $frame;
+		if ( !$frame ) {
+			$frame = $this->getProcessedFrame(
+				static function ( $val ) {
+					return strtr( $val, [ ';' => '\\;' ] );
+				},
+				true
+			);
+		}
+		return $frame;
+	}
+
+	/**
 	 * Replace arguments escaping as javascript not inside quotes
 	 *
 	 * @param \PPNode $dom
@@ -183,6 +225,7 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 		$args = $this->frame->getArguments();
 		if ( $unstrip ) {
 			$args = array_map( [ $this->parser->getStripState(), 'unstripBoth' ], $args );
+			$args = array_map( [ Sanitizer::class, 'decodeCharReferences' ], $args );
 		}
 		$newArgs = array_map( $callback, $args );
 		return $this->parser->getPreprocessor()->newCustomFrame( $newArgs );
@@ -203,6 +246,8 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 
 	/**
 	 * Replace arguments for a plaintext context (like attributes)
+	 *
+	 * @warning You still may have to escape this.
 	 * @param \PPNode $dom
 	 * @return string text
 	 */
