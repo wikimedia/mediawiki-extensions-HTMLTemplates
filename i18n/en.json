@@ -8,5 +8,8 @@
 	"htmltemplates-transclusionerror": "Internal error: Could not find HTML template to transclude.",
 	"htmltemplates-transclusion-args": "HTML Template could not be transcluded",
 	"right-edithtmltemplates": "Edit HTML templates",
-	"action-edithtmltemplates": "edit HTML templates"
+	"action-edithtmltemplates": "edit HTML templates",
+	"htmltemplate-doc-create": "Create documentation page",
+	"htmltemplate-doc-missing": "[[$1|{{int:htmltemplate-doc-create}}]]<hr>\n{{$2}}",
+	"htmltemplate-doc-show": "{{$1}}\n<hr>\n{{$2}}"
 }

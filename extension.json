@@ -9,7 +9,12 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"ContentHandlers": {
-		"htmltemplate": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContentHandler"
+		"htmltemplate": {
+			"class": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContentHandler",
+			"services": [
+				"ParserFactory"
+			]
+		}
 	},
 	"requires": {
 		"MediaWiki": ">= 1.35"
@@ -31,7 +36,8 @@
 		"CodeEditorGetPageLanguage": "main",
 		"ContentHandlerDefaultModelFor": "main",
 		"BeforeParserFetchTemplateAndtitle": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContent::onBeforeParserFetchTemplateAndtitle",
-		"BeforeParserFetchTemplateRevisionRecord": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContent::onBeforeParserFetchTemplateAndtitle"
+		"BeforeParserFetchTemplateRevisionRecord": "MediaWiki\\Extension\\HTMLTemplates\\HTMLTemplateContent::onBeforeParserFetchTemplateAndtitle",
+		"EditPageBeforeEditButtons": "main"
 	},
 	"callback": "MediaWiki\\Extension\\HTMLTemplates\\Hooks::setup",
 	"HookHandlers": {

@@ -8,5 +8,8 @@
 	"htmltemplates-transclusionerror": "Error if the template seems missing. This error should be very unusual",
 	"htmltemplates-transclusion-args": "Error given if invalid arguments are given to the extension. It should be difficult to trigger this error.",
 	"right-edithtmltemplates": "{{doc-right|edithtmltemplates}}",
-	"action-edithtmltemplates": "{{doc-action|edithtmltemplates}}"
+	"action-edithtmltemplates": "{{doc-action|edithtmltemplates}}",
+	"htmltemplate-doc-create": "Text shown as text of a link to create the missing documentation page",
+	"htmltemplate-doc-missing": "{{notranslate}}"
+	"htmltemplate-doc-show": "{{notranslate}}"
 }

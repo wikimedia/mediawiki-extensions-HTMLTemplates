@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\HTMLTemplates;
 
 use LogicException;
+use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\Revision\RevisionLookup;
@@ -11,7 +12,11 @@ use Parser;
 use PPFrame;
 use Title;
 
-class Hooks implements ParserFirstCallInitHook, ContentHandlerDefaultModelForHook {
+class Hooks implements
+	ParserFirstCallInitHook,
+	ContentHandlerDefaultModelForHook,
+	EditPageBeforeEditButtonsHook
+{
 
 	/** @var RevisionLookup */
 	private $revisionLookup;
@@ -116,6 +121,18 @@ class Hooks implements ParserFirstCallInitHook, ContentHandlerDefaultModelForHoo
 				return;
 			}
 			$model = 'htmltemplate';
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 *
+	 * Disable preview button. For security reasons we don't want previews
+	 * to actually work (in case of CSRF).
+	 */
+	public function onEditPageBeforeEditButtons( $editor, &$buttons, &$tabindex ) {
+		if ( $editor->getTitle()->hasContentModel( HTMLTemplateContentHandler::MODEL_NAME ) ) {
+			unset( $buttons['preview'] );
 		}
 	}
 
