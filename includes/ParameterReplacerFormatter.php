@@ -87,12 +87,44 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 	}
 
 	/**
+	 * Implement <mw:resourceloader module="foo" type="script">
+	 *
+	 * @param SerializerNode $node Element
+	 */
+	private function handleRL( SerializerNode $node ) {
+		$type = 'script';
+		$attrs = $node->attrs->getValues();
+		$type = $attrs['type'] ?? 'script';
+		$module = $attrs['module'] ?? false;
+		if ( !is_string( $module ) ) {
+			return;
+		}
+		if ( $type === 'script' ) {
+			$this->parser->getOutput()->addModules( [ $module ] );
+		}
+		if ( $type === 'style' ) {
+			$this->parser->getOutput()->addModuleStyles( [ $module ] );
+		}
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function element( SerializerNode $parent, SerializerNode $node, $contents ) {
 		$name = $node->name;
+		if ( $name === 'mw:resourceloader' ) {
+			$this->handleRL( $node );
+			return '';
+		}
 		$s = "<$name";
+		$contentsWikitext = false;
 		foreach ( $node->attrs->getValues() as $attrName => $attrValue ) {
+			if ( $attrName === 'mw:wikitext' ) {
+				// TODO This should actually be in tree handler to prevent
+				// parsing of inner contents.
+				$contentsWikitext = true;
+				continue;
+			}
 			if ( $this->shouldReplace( $attrValue ) ) {
 				$dom = $this->parser->preprocessToDom( $attrValue, Parser::PTD_FOR_INCLUSION );
 				if ( $attrName === 'style' ) {
@@ -118,6 +150,10 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 			$s .= " $attrName=\"$encValue\"";
 		}
 		$s .= '>';
+
+		if ( $contentsWikitext ) {
+			$contents = $this->parser->recursiveTagParse( $contents, $this->frame );
+		}
 		if ( $node->namespace === HTMLData::NS_HTML ) {
 			if ( isset( $contents[0] ) && $contents[0] === "\n"
 				&& isset( $this->prefixLfElements[$name] )
