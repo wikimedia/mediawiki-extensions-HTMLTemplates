@@ -232,7 +232,13 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 		if ( !$frame ) {
 			$frame = $this->getProcessedFrame(
 				static function ( $val ) {
-					return strtr( $val, [ ';' => '\\;' ] );
+					// We want people to be able to do `url( "{{{1}}}" );`
+					// but we don't want url to be subtituted directly
+					return str_replace(
+						[ 'url(', 'src(', ';' ],
+						[ 'ur\\l(', 'sr\\c(', '\\;' ],
+						$val
+					);
 				},
 				true
 			);
