@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Mahabarata",
 			"Terio legale",
 			"Verdy p"
 		]
@@ -9,5 +10,6 @@
 	"htmltemplates-transclusionerror": "Erreur interne : impossible de trouver le modèle HTML à transclure.",
 	"htmltemplates-transclusion-args": "Le modèle HTML n’a pas pu être transclus",
 	"right-edithtmltemplates": "Modifier les extensions HTML",
-	"action-edithtmltemplates": "Modifier les extensions HTML"
+	"action-edithtmltemplates": "Modifier les extensions HTML",
+	"htmltemplate-doc-create": "Créer une page de documentation"
 }
