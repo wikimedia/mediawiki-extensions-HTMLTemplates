@@ -8,5 +8,6 @@
 	"htmltemplates-transclusionerror": "Внатрешна грешка: Не можев да ја пронајдам HTML-предлошката за превметнување.",
 	"htmltemplates-transclusion-args": "HTML-предлошката не можеше да се превметне",
 	"right-edithtmltemplates": "Уредување на HTML-предлошки",
-	"action-edithtmltemplates": "уредување на HTML-предлошки"
+	"action-edithtmltemplates": "уредување на HTML-предлошки",
+	"htmltemplate-doc-create": "Создај документациска страница"
 }
