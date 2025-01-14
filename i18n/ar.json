@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Asma"
+			"Asma",
+			"Meno25"
 		]
 	},
 	"htmltemplates-desc": "السماح بإنشاء قوالب في مساحة اسم قالب HTML التي تستخدم HTML مباشرة",
 	"htmltemplates-transclusionerror": "خطأ داخلي: تعذر العثور على قالب HTML لتضمينه.",
-	"htmltemplates-transclusion-args": "لا يمكن ترجمة قالب HTML"
+	"htmltemplates-transclusion-args": "لا يمكن ترجمة قالب HTML",
+	"right-edithtmltemplates": "تعديل قوالب HTML",
+	"action-edithtmltemplates": "تعديل قوالب HTML"
 }
