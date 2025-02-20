@@ -8,5 +8,6 @@
 	"htmltemplates-transclusionerror": "Error interne: Non poteva trovar patrono HTML a transcluder.",
 	"htmltemplates-transclusion-args": "Patrono HTML non poteva esser transcludite",
 	"right-edithtmltemplates": "Modificar patronos HTML",
-	"action-edithtmltemplates": "modificar patronos HTML"
+	"action-edithtmltemplates": "modificar patronos HTML",
+	"htmltemplate-doc-create": "Crear pagina de documentation"
 }
