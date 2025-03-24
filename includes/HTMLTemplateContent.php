@@ -1,8 +1,8 @@
 <?php
 namespace MediaWiki\Extension\HTMLTemplates;
 
-use TextContent;
-use Title;
+use MediaWiki\Content\TextContent;
+use MediaWiki\Title\Title;
 
 class HTMLTemplateContent extends TextContent {
 

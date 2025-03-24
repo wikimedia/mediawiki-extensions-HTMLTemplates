@@ -5,12 +5,12 @@ namespace MediaWiki\Extension\HTMLTemplates;
 use LogicException;
 use MediaWiki\Hook\EditPageBeforeEditButtonsHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
-use Parser;
-use PPFrame;
-use Title;
+use MediaWiki\Title\Title;
 
 class Hooks implements
 	ParserFirstCallInitHook,
