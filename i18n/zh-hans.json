@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"GuoPC"
+		]
+	},
+	"htmltemplates-desc": "允许在HTMLTemplate命名空间中制作可直接使用HTML的模板",
+	"htmltemplates-transclusionerror": "内部错误：找不到要嵌入的HTML模板。",
+	"htmltemplates-transclusion-args": "无法嵌入HTML模板",
+	"right-edithtmltemplates": "编辑HTML模板",
+	"action-edithtmltemplates": "编辑HTML模板",
+	"htmltemplate-doc-create": "创建文档页面"
+}
