@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"JeffreyKim"
+		]
+	},
+	"htmltemplates-desc": "允許喺 HTML 範本命名空間入面製作直接使用 HTML 嘅範本",
+	"htmltemplates-transclusionerror": "內部錯誤：搵唔到要排除嘅 HTML 範本。",
+	"htmltemplates-transclusion-args": "轉錄唔到 HTML 範本",
+	"right-edithtmltemplates": "編輯 HTML 範本",
+	"action-edithtmltemplates": "編輯 HTML 範本"
+}
