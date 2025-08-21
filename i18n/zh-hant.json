@@ -8,5 +8,6 @@
 	"htmltemplates-transclusionerror": "內部錯誤：找不到要嵌入的 HTML 模板。",
 	"htmltemplates-transclusion-args": "無法嵌入 HTML 模板",
 	"right-edithtmltemplates": "編輯 HTML 模板",
-	"action-edithtmltemplates": "編輯 HTML 模板"
+	"action-edithtmltemplates": "編輯 HTML 模板",
+	"htmltemplate-doc-create": "建立文件頁面"
 }
