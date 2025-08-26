@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"htmltemplates-desc": "Permitir a creación de modelos no espazo de nomes HTMLTemplate que usen HTML directamente",
+	"htmltemplates-transclusionerror": "Erro interno: Non se puido atopar o modelo HTML a transcluír.",
+	"htmltemplates-transclusion-args": "Non se puido transcluír o modelo HTML",
+	"right-edithtmltemplates": "Editar modelos HTML",
+	"action-edithtmltemplates": "editar modelos HTML",
+	"htmltemplate-doc-create": "Crear a páxina de documentación"
+}
