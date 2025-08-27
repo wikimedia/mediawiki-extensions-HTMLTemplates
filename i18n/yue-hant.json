@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"JeffreyKim",
-			"Ktchankt"
+			"Ktchankt",
+			"H78c67c"
 		]
 	},
-	"htmltemplates-desc": "俾喺 HTML 範本命名空間入面製作直接用 HTML 嘅範本",
-	"htmltemplates-transclusionerror": "內部錯誤：搵唔到要排除嘅 HTML 範本。",
-	"htmltemplates-transclusion-args": "轉錄唔到 HTML 範本",
-	"right-edithtmltemplates": "編輯 HTML 範本",
-	"action-edithtmltemplates": "編輯 HTML 範本",
-	"htmltemplate-doc-create": "建立文件頁面"
+	"htmltemplates-desc": "俾喺 HTMLTemplate 命名空間入面製作直接用 HTML 嘅模",
+	"htmltemplates-transclusionerror": "內部錯誤：搵唔到要嵌入嘅 HTML 模。",
+	"htmltemplates-transclusion-args": "嵌入唔到 HTML 模",
+	"right-edithtmltemplates": "改 HTML 模",
+	"action-edithtmltemplates": "改 HTML 模",
+	"htmltemplate-doc-create": "建立説明版面"
 }
