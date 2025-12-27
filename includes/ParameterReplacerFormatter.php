@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\HtmlTemplates;
 
+use MediaWiki\Html\Html;
 use MediaWiki\Parser\Sanitizer;
 use Parser;
 use PPFrame;
@@ -215,7 +216,7 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 	private function getUnquotedJSFrame() {
 		static $frame;
 		if ( !$frame ) {
-			$frame = $this->getProcessedFrame( "Xml::encodeJSVar", true );
+			$frame = $this->getProcessedFrame( [ Html::class, 'encodeJsVar' ], true );
 		}
 		return $frame;
 	}
