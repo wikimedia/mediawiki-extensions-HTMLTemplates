@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\HtmlTemplates;
 
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use Parser;
 use PPFrame;
@@ -78,7 +79,9 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 			case 'href':
 			case 'src':
 				// We allow any protocol. Also relative urls starting with / or ./
-				if ( !preg_match( '/^(' . wfUrlProtocols() . '|\\.?\\/)/', $value ) ) {
+				if ( !preg_match( '/^(' .
+					MediaWikiServices::getInstance()->getUrlUtils()->validProtocols()
+					. '|\\.?\\/)/', $value ) ) {
 					return 'about:blank#NotAllowedURLProtocol';
 				}
 				return $value;
