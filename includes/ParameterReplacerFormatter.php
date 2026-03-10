@@ -158,7 +158,7 @@ class ParameterReplacerFormatter extends HtmlFormatter {
 		if ( $contentsWikitext ) {
 			$contents = $this->parser->recursiveTagParse( $contents, $this->frame );
 		}
-		if ( $node->namespace === HTMLData::NS_HTML ) {
+		if ( $node->namespace === HTMLData::NS_HTML && $contents !== null ) {
 			if ( isset( $contents[0] ) && $contents[0] === "\n"
 				&& isset( $this->prefixLfElements[$name] )
 			) {
