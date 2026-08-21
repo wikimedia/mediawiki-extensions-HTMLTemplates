@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"htmltemplates-desc": "Umožňuje vytvárať v mennom priestore HTMLTemplate šablóny, ktoré priamo používajú HTML",
+	"htmltemplates-transclusionerror": "Interná chyba: Nepodarilo sa nájsť HTML šablónu na vloženie.",
+	"htmltemplates-transclusion-args": "HTML šablónu sa nepodarilo vložiť",
+	"right-edithtmltemplates": "Upravovať HTML šablóny",
+	"action-edithtmltemplates": "upravovať HTML šablóny",
+	"htmltemplate-doc-create": "Vytvoriť stránku dokumentácie"
+}
